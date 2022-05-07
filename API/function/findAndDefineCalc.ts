@@ -16,17 +16,24 @@ import { realizeCalc } from "./realizeCalc";
 export function findAndDefineCalc(sinal: SinalCalc, reference: ReferenceValues[], 
     accomplished: number[], calc: string[],numberLine:number,numberColumn:number): ReturnFindAndDefineCalc | boolean {
     try {
-        // Multiplicação
-        const index = calc.findIndex((element) => element == sinal)
-        const accomplishedSinal = accomplished.findIndex((element) => element == index)
-        if (index != -1 && accomplishedSinal == -1) {
+        
+        // const index = calc.findIndex((element) => element == sinal)
+        // const accomplishedSinal = accomplished.findIndex((element) => element == index)
+        let newindex
+         calc.forEach((element,index)=>{
+            if(element == sinal && !accomplished.includes(index)){
+                newindex = index
+            }
+        })
+        if (newindex != undefined) {
             // Realizar calculo
-            const value = realizeCalc(sinal,index,reference,calc,numberLine,numberColumn)
+            const value = realizeCalc(sinal,newindex,reference,calc,numberLine,numberColumn)
+            console.log(value)
             // Salvar valores na referencia
-            reference.push({ index: index - 1, value: value })
-            reference.push({ index: index + 1, value: value })
+            reference.push({ index: newindex - 1, value: value })
+            reference.push({ index: newindex + 1, value: value })
             // Salvar objeto que a multiplicação ja foi feita
-            accomplished.push(index)
+            accomplished.push(newindex)
 
             return { reference, accomplished, value }
         }else{ return false}
