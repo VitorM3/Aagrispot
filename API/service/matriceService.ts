@@ -11,7 +11,7 @@ export class MatriceSerice{
      * Serviço para criar uma matriz com as predefinições passadas pelo usuário
      * @param predefinitionsMatrice predefinições passadas pelo usuário
      */
-    async create(predefinitionsMatrice:IBodyCreate){
+    async create(predefinitionsMatrice:IBodyCreate):Promise<IMatriceBase[]>{
         try {
             // Separar objeto vindo do controller
             let numberLines = predefinitionsMatrice.numLines
@@ -29,8 +29,10 @@ export class MatriceSerice{
             
             // Criar Objeto da matriz
             let matrice:IMatriceBase[] = []
-
+            
             matrice = await createMatrice(matrice,numberLines,numberColumns,newArrayCalc)
+
+            return matrice
             
         } catch (error:any) {
             throw new Error(`Service (create) => ${error.message}`)

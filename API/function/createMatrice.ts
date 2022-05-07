@@ -9,6 +9,7 @@ import { calculateArrayString } from "./calculateArrayString";
  * @param calcArray Array com o calculo para criar a matriz
  */
 export const createMatrice = async (matriceBase: IMatriceBase[], numberLinesAll: number, numberColumnsAll: number, calcArray: string[]):Promise<IMatriceBase[]> => {
+    
     try {
         // Criar variaveis para contar o numero de linhas que foram executadas
         let numberCalculatedLine = 1
@@ -17,7 +18,8 @@ export const createMatrice = async (matriceBase: IMatriceBase[], numberLinesAll:
         // Estrutura de repetição para criar Matriz
         while (numberCalculatedLine < numberLinesAll && numberCalculatedColumn < numberColumnsAll) {
             // Função para executar calcular a respectiva matriz
-            let valueInMatrice = await calculateArrayString(calcArray)
+ 
+            let valueInMatrice = await calculateArrayString(calcArray,numberCalculatedLine,numberCalculatedColumn)
             matriceBase.push({ order: `a${numberCalculatedLine}${numberCalculatedColumn}`, value: valueInMatrice })
             // Passar para a proxima linha
             if (numberCalculatedLine != numberLinesAll) {

@@ -1,11 +1,15 @@
+import { SinalCalc } from "../models/enum/sinalCalc"
 import { ReferenceValues } from "../models/types/referenceValues"
+import { ReturnFindAndDefineCalc } from "../models/types/returnFindAndDefineCalc"
+import { calculateParentheses } from "./calculateParentheses"
+import { findAndDefineCalc } from "./findAndDefineCalc"
 
 /**
  * Função para organizar o respectivo calculo e executar em ordem de prioridade
  * @param qtdCalc Quantidade de vezes que irá realizar o calculo
  * @param calcArray Array com o calculo
  */
-export const organizeCalc = (qtdCalc: number, calcArray: string[]) => {
+export const organizeCalc = async (qtdCalc: number, calcArray: string[], numberLine: number, numberColumn: number): Promise<number> => {
     try {
         // Variaveis a serem utilizadas fora da estrutura de repetição
         let referenceValues: ReferenceValues[] = []
@@ -16,23 +20,90 @@ export const organizeCalc = (qtdCalc: number, calcArray: string[]) => {
         // Estrutura de repetição para executar o calculo
         while (repeat != qtdCalc) {
             // Executar as funções pela ordem de prioridade
-            // Multiplicação
-            const indexMultiplication = calcArray.findIndex((element) => element == '*')
-            const accomplishedMultiplication = accomplished.findIndex((element) => element == indexMultiplication)
-            // Verificar se o calculo ja foi executado
-            if (indexMultiplication != -1 && accomplishedMultiplication == -1) {
-                // Realizar calculo
-                const value = 0
-                // Salvar valores na referencia
-                referenceValues.push({ index: indexMultiplication - 1, value: value })
-                referenceValues.push({ index: indexMultiplication + 1, value: value })
-                // Salvar objeto que a multiplicação ja foi feita
-                accomplished.push(indexMultiplication)
+            // Parenteses
+            const indexParenthesesBegin = calcArray.findIndex((element) => element == '(')
+            const indexParenthesesAccomplished = accomplished.findIndex((indexArray) => indexArray == indexParenthesesBegin)
+            if (indexParenthesesBegin != -1 && indexParenthesesAccomplished == -1) {
+                const objCalc = await calculateParentheses(qtdCalc, calcArray, indexParenthesesBegin, referenceValues, accomplished, numberLine, numberColumn)
+                referenceValues = objCalc.reference
+                accomplished = objCalc.accomplished
+                value = objCalc.value
+                qtdCalc = qtdCalc - objCalc.newQtd
                 repeat = repeat + 1
             } else {
-                // Divisão
+                // Multiplicação
+                const objCalc: ReturnFindAndDefineCalc | boolean = findAndDefineCalc(SinalCalc.Multipli,
+                    referenceValues,
+                    accomplished,
+                    calcArray,
+                    numberLine,
+                    numberColumn)
+                if (typeof objCalc != "boolean") {
+                    // Atribuir valores
+                    
+                    referenceValues = objCalc.reference
+                    accomplished = objCalc.accomplished
+                    value = objCalc.value
+                    
+                    repeat = repeat + 1
+                }
+                else {
+                    // Divisão
+                    const objCalc: ReturnFindAndDefineCalc | boolean = findAndDefineCalc(SinalCalc.Division,
+                        referenceValues,
+                        accomplished,
+                        calcArray,
+                        numberLine,
+                        numberColumn)
+
+                    if (typeof objCalc != "boolean") {
+                        // Atribuir valores
+                        referenceValues = objCalc.reference
+                        accomplished = objCalc.accomplished
+                        value = objCalc.value
+                        repeat = repeat + 1
+                    } else {
+                        // Soma
+                        const objCalc: ReturnFindAndDefineCalc | boolean = findAndDefineCalc(SinalCalc.Sum,
+                            referenceValues,
+                            accomplished,
+                            calcArray,
+                            numberLine,
+                            numberColumn)
+
+                        if (typeof objCalc != "boolean") {
+                            // Atribuir valores
+                            referenceValues = objCalc.reference
+                            accomplished = objCalc.accomplished
+                            value = objCalc.value
+                            repeat = repeat + 1
+                        } else {
+                            // Subtração
+                            const objCalc: ReturnFindAndDefineCalc | boolean = findAndDefineCalc(SinalCalc.Subtracion,
+                                referenceValues,
+                                accomplished,
+                                calcArray,
+                                numberLine,
+                                numberColumn)
+
+                            if (typeof objCalc != "boolean") {
+                                // Atribuir valores
+                                referenceValues = objCalc.reference
+                                accomplished = objCalc.accomplished
+                                value = objCalc.value
+                                repeat = repeat + 1
+                            } else { repeat = repeat + 1 }
+                        }
+                    }
+
+                }
             }
+
+
+
+
         }
+        
         return value
 
     } catch (error: any) {

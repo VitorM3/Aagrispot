@@ -14,7 +14,9 @@ Express.urlencoded({extended:false})
 app.use(Express.json())
 
 // Configuração para melhor visualização do console -> Dev
-app.use(morgan("dev"))
+if(environmentVariables.definition == "dev"){
+    app.use(morgan("dev"))
+}else{app.use(morgan("common"))}
 
 // Rotas
 app.use('/matrice',matrice)
