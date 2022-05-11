@@ -6,6 +6,6 @@ justify-content:center;
 align-items:center;
 gap:10rem;
 padding:3rem 0 0 0;
-height:40%;
+height:60%;
 width:100%;
 `

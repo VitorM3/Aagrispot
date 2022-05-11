@@ -7,6 +7,7 @@ const lightTheme = {
     success:`#30E885`,
     background:`#FFFFFF`, 
     detail:`#C7CAD1`,
+    accent:`#F0F0F0`
 }
 
 export default lightTheme

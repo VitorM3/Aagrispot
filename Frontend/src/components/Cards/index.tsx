@@ -1,9 +1,9 @@
 import { CardsProps } from "../../models/types/CardsProps";
 import { CardBase,Icon,Text } from "./style";
 
-const Cards = ({text,children}:CardsProps) => {
+const Cards = ({text,children,click}:CardsProps) => {
     return (
-        <CardBase>
+        <CardBase onClick={()=>click()}>
             <Icon>{children}</Icon>
             <Text>{text}</Text>
 

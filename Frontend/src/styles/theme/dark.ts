@@ -7,6 +7,7 @@ const darkTheme = {
     success:`#30E885`,
     background:`#22222D`, 
     detail:`#494855`,
+    accent:`#201E26`,
 }
 
 export default darkTheme

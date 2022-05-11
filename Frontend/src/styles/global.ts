@@ -4,6 +4,7 @@ import { ThemeType } from '../models/types/theme/dark'
 export const GlobalStyles = createGlobalStyle<{theme:ThemeType}>`
 body{
     background-color:var(--sixty);
+    max-width:97vw;
 }
 
 h1,h2,h3,h4,h5,h6,p{
@@ -20,5 +21,6 @@ h1,h2,h3,h4,h5,h6,p{
     --success:${props=>props.theme.success};
     --background:${props=>props.theme.background}; 
     --detail:${props=>props.theme.detail};
+    --accent:${props=>props.theme.accent};
 }
 `

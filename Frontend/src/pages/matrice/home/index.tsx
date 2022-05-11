@@ -1,13 +1,15 @@
 import { useEffect } from "react";
 import AllCards from "../../../components/pages/matrice/home/AllCards";
-
-import SecondaryHeader from "../../../components/pages/matrice/home/SecondaryHeader";
+import { useSecondaryHeader } from "../../../hooks/useSecondaryHeader";
 
 const HomeMatrice = () => {
+    const {handleChangeTitle} = useSecondaryHeader()
+    useEffect(()=>{
+        handleChangeTitle('Seja Bem Vindo, O que faremos hoje')
+    },[])
     
     return (
         <>
-        <SecondaryHeader/>
         <AllCards/>
         </>
         

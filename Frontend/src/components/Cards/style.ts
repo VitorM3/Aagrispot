@@ -4,14 +4,14 @@ export const CardBase = styled.section`
 display:flex;
 flex-direction:column;
 width:30%;
-height:100%;
+height:68%;
 background-color:var(--detail);
 border-radius:1rem;
 transition: .4s;
 cursor: pointer;
 
 &:hover{
-    background-color:var(--thirty);
+    background-color:var(--accent);
     
     h1{
         color:var(--ten);

@@ -1,18 +1,20 @@
 import styled from "styled-components";
 
-export const SecondaryHeaderGeneral = styled.header`
+export const SecondaryHeaderHomeGeneral = styled.header`
 display:flex;
-flex-direction:column;
-margin-top:1.5rem;
+flex-direction:column-reverse;
 align-items:center;
 width:100%;
+height:15%;
 `
 export const Title = styled.h1`
 display:flex;
+flex-direction:row;
+align-items:flex-end;
 font-size:2rem;
 font-weight:600;
 margin:0;
-margin-top:5rem;
+
 `
 export const Line = styled.hr`
 display:flex;
