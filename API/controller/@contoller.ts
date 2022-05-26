@@ -1,9 +1,9 @@
 // Importações
-import { MatriceController } from "./matriceController";
+import { MatrixController } from "./matrixController";
 
 // Instanciar
 /**
- * Variavel para receber os controlles da rota matrices
+ * Variavel para receber os controlles da rota matrixs
  */
-export const matriceController = new MatriceController()
+export const matrixController = new MatrixController()
 

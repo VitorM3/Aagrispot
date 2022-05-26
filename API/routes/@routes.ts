@@ -1,5 +1,5 @@
 // Importações 
-import matrice from './matrice'
+import matrix from './matrixs'
 
 // Exports
-export{matrice}
+export{matrix}
