@@ -2,7 +2,7 @@
 import  Express  from "express";
 import { environmentVariables } from "./class/env";
 import morgan from 'morgan'
-import { matrice } from "./routes/@routes";
+import { matrix } from "./routes/@routes";
 
 // Configurações
 /**
@@ -19,7 +19,7 @@ if(environmentVariables.definition == "dev"){
 }else{app.use(morgan("common"))}
 
 // Rotas
-app.use('/matrice',matrice)
+app.use('/matrix',matrix)
 
 // Iniciar servidor
 

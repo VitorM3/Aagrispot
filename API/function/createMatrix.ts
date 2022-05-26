@@ -1,14 +1,14 @@
-import { IMatriceBase } from "../models/interface/matriceBase";
+import { IMatrixBase } from "../models/interface/matrixBase";
 import { calculateArrayString } from "./calculateArrayString";
 
 /**
  * Função para criar uma Matriz com as predefinições passadas pelo usuário
- * @param matriceBase Array que recebera a respectiva matriz
+ * @param matrixBase Array que recebera a respectiva matriz
  * @param numberLinesAll Número total de linhas
  * @param numberColumnsAll Número total de colunas
  * @param calcArray Array com o calculo para criar a matriz
  */
-export const createMatrice = async (matriceBase: IMatriceBase[], numberLinesAll: number, numberColumnsAll: number, calcArray: string[]):Promise<IMatriceBase[]> => {
+export const createMatrix = async (matrixBase: IMatrixBase[], numberLinesAll: number, numberColumnsAll: number, calcArray: string[]):Promise<IMatrixBase[]> => {
     
     try {
         // Criar variaveis para contar o numero de linhas que foram executadas
@@ -19,8 +19,8 @@ export const createMatrice = async (matriceBase: IMatriceBase[], numberLinesAll:
         while (numberCalculatedLine < numberLinesAll && numberCalculatedColumn < numberColumnsAll) {
             // Função para executar calcular a respectiva matriz
  
-            let valueInMatrice = await calculateArrayString(calcArray,numberCalculatedLine,numberCalculatedColumn)
-            matriceBase.push({ order: `a${numberCalculatedLine}${numberCalculatedColumn}`, value: valueInMatrice })
+            let valueInMatrix = await calculateArrayString(calcArray,numberCalculatedLine,numberCalculatedColumn)
+            matrixBase.push({ order: `a${numberCalculatedLine}${numberCalculatedColumn}`, value: `${valueInMatrix}` })
             // Passar para a proxima linha
             if (numberCalculatedLine != numberLinesAll) {
                 numberCalculatedLine = numberCalculatedLine + 1
@@ -31,8 +31,8 @@ export const createMatrice = async (matriceBase: IMatriceBase[], numberLinesAll:
                 numberCalculatedLine = 1
             }
         }
-        return matriceBase
+        return matrixBase
     } catch (error:any) {
-        throw new Error(`function (createMatrice) => ${error.message}`)
+        throw new Error(`function (createMatrix) => ${error.message}`)
     }
 }

@@ -1,8 +1,8 @@
 // Importações
-import { MatriceSerice } from "./matriceService";
+import { MatrixSerice } from "./matrixService";
 
 // Instanciar
 /**
  * Variavel para os serviços para manipular e realizar funções das matrizes
  */
-export const matriceSerice = new MatriceSerice() 
+export const matrixSerice = new MatrixSerice() 

@@ -1,6 +1,6 @@
 // Importações
 import { Router } from "express";
-import {matriceController as controller} from '../controller/@contoller'
+import {matrixController as controller} from '../controller/@contoller'
 
 // Rota
 /**
@@ -9,6 +9,7 @@ import {matriceController as controller} from '../controller/@contoller'
 const route = Router()
 
 route.post('/create',controller.create)
+route.post('/calculate',controller.calculate)
 
 // Export
 export default route

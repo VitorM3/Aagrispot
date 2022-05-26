@@ -1,7 +1,7 @@
 {
   "name": "aagrispot",
   "version": "1.0.0",
-  "description": "Project to perform calculations and generations with matrices",
+  "description": "Project to perform calculations and generations with matrixs",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
