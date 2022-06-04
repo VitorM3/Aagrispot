@@ -1,10 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.matriceSerice = void 0;
+exports.matrixService = void 0;
 // Importações
-const matriceService_1 = require("./matriceService");
+const matrixService_1 = require("./matrixService");
 // Instanciar
 /**
  * Variavel para os serviços para manipular e realizar funções das matrizes
  */
-exports.matriceSerice = new matriceService_1.MatriceSerice();
+exports.matrixService = new matrixService_1.MatrixService();

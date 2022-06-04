@@ -4,7 +4,7 @@ import { logger } from "../class/log";
 import { IMatrixBase } from "../models/interface/matrixBase";
 import { IBodyCreate } from "../models/interface/routes/matrixs/bodyCreate";
 import { IBodyCalculate } from "../models/interface/routes/matrixs/bodyCalculate";
-import { matrixSerice } from "../service/@service";
+import { matrixService as matrixService } from "../service/@service";
 import { SinalCalc } from "../models/enum/sinalCalc";
 import { IErrorClient } from "../models/interface/errorClient";
 
@@ -27,7 +27,7 @@ export class MatrixController {
             let bodyCreate: IBodyCreate = req.body
             // Executar serviço
             let newMatrix: IMatrixBase[]
-            newMatrix = await matrixSerice.create(bodyCreate)
+            newMatrix = await matrixService.create(bodyCreate)
 
             return res.status(200).send(newMatrix)
 
@@ -48,7 +48,7 @@ export class MatrixController {
             // Atribuir valores passados para uma tipagem
             let bodyCalculate: IBodyCalculate = req.body
             // Executar serviço
-            let newMatrixOrError = <IErrorClient | IMatrixBase[]>await matrixSerice.calculate(bodyCalculate)
+            let newMatrixOrError = <IErrorClient | IMatrixBase[]>await matrixService.calculate(bodyCalculate)
             // Verificar se houve algum erro durante a execução
             let errorClient:IErrorClient = <IErrorClient>newMatrixOrError
             if(errorClient.messageErrorClient != undefined){

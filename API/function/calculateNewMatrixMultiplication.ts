@@ -15,8 +15,8 @@ export function calculateNewMatrixMultiplication(
     try {
         const numberMaxMatrix = getNumberMaxOfLineAndColumn(matrixOne, matrixTwo)
         // Atribuir valores da funções separadas
-        let numberMaxLineOne = numberMaxMatrix.numberMaxLineMatrixOne
-        let numberMaxColumnTwo = numberMaxMatrix.numberMaxColumnMatrixTwo
+        let numberMaxLineOne = numberMaxMatrix.numberMaxLineMatrixOne + 1
+        let numberMaxColumnTwo = numberMaxMatrix.numberMaxColumnMatrixTwo! + 1
 
         // Verificar numero atual das linhas da 
         let atualNumberLineOne = 1

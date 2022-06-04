@@ -5,9 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev-start": "ts-node-dev --respawn --transpile-only app.ts",
-    "prod-create":"npx tsc",
-    "prod-start":"node ./build/app.js"
+    "dev-start": "ts-node-dev --respawn --transpile-only app.ts"
   },
   "repository": {
     "type": "git",

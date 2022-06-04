@@ -25,7 +25,7 @@ else {
     exports.app.use((0, morgan_1.default)("common"));
 }
 // Rotas
-exports.app.use('/matrice', _routes_1.matrice);
+exports.app.use('/matrix', _routes_1.matrix);
 // Iniciar servidor
 exports.app.listen(env_1.environmentVariables.port, () => {
     if (env_1.environmentVariables.definition == 'notFound') {

@@ -1,10 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.matriceController = void 0;
+exports.matrixController = void 0;
 // Importações
-const matriceController_1 = require("./matriceController");
+const matrixController_1 = require("./matrixController");
 // Instanciar
 /**
- * Variavel para receber os controlles da rota matrices
+ * Variavel para receber os controlles da rota matrixs
  */
-exports.matriceController = new matriceController_1.MatriceController();
+exports.matrixController = new matrixController_1.MatrixController();

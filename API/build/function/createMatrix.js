@@ -9,16 +9,16 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.createMatrice = void 0;
+exports.createMatrix = void 0;
 const calculateArrayString_1 = require("./calculateArrayString");
 /**
  * Função para criar uma Matriz com as predefinições passadas pelo usuário
- * @param matriceBase Array que recebera a respectiva matriz
+ * @param matrixBase Array que recebera a respectiva matriz
  * @param numberLinesAll Número total de linhas
  * @param numberColumnsAll Número total de colunas
  * @param calcArray Array com o calculo para criar a matriz
  */
-const createMatrice = (matriceBase, numberLinesAll, numberColumnsAll, calcArray) => __awaiter(void 0, void 0, void 0, function* () {
+const createMatrix = (matrixBase, numberLinesAll, numberColumnsAll, calcArray) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         // Criar variaveis para contar o numero de linhas que foram executadas
         let numberCalculatedLine = 1;
@@ -26,8 +26,8 @@ const createMatrice = (matriceBase, numberLinesAll, numberColumnsAll, calcArray)
         // Estrutura de repetição para criar Matriz
         while (numberCalculatedLine < numberLinesAll && numberCalculatedColumn < numberColumnsAll) {
             // Função para executar calcular a respectiva matriz
-            let valueInMatrice = yield (0, calculateArrayString_1.calculateArrayString)(calcArray, numberCalculatedLine, numberCalculatedColumn);
-            matriceBase.push({ order: `a${numberCalculatedLine}${numberCalculatedColumn}`, value: valueInMatrice });
+            let valueInMatrix = yield (0, calculateArrayString_1.calculateArrayString)(calcArray, numberCalculatedLine, numberCalculatedColumn);
+            matrixBase.push({ order: `a${numberCalculatedLine}${numberCalculatedColumn}`, value: `${valueInMatrix}` });
             // Passar para a proxima linha
             if (numberCalculatedLine != numberLinesAll) {
                 numberCalculatedLine = numberCalculatedLine + 1;
@@ -38,10 +38,10 @@ const createMatrice = (matriceBase, numberLinesAll, numberColumnsAll, calcArray)
                 numberCalculatedLine = 1;
             }
         }
-        return matriceBase;
+        return matrixBase;
     }
     catch (error) {
-        throw new Error(`function (createMatrice) => ${error.message}`);
+        throw new Error(`function (createMatrix) => ${error.message}`);
     }
 });
-exports.createMatrice = createMatrice;
+exports.createMatrix = createMatrix;

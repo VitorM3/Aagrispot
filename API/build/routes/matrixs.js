@@ -8,6 +8,7 @@ const _contoller_1 = require("../controller/@contoller");
  * Variavel base para receber as rotas das matrizes
  */
 const route = (0, express_1.Router)();
-route.post('/create', _contoller_1.matriceController.create);
+route.post('/create', _contoller_1.matrixController.create);
+route.post('/calculate', _contoller_1.matrixController.calculate);
 // Export
 exports.default = route;

@@ -11,7 +11,7 @@ import { refineArray } from "../utils/refineArray";
 /**
  * Serviços para manipular e realizar funções das matrizes
  */
-export class MatrixSerice {
+export class MatrixService {
     /**
      * Serviço para criar uma matriz com as predefinições passadas pelo usuário
      * @param predefinitionsMatrix predefinições passadas pelo usuário
