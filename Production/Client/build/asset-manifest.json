@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "./static/css/main.83216d16.css",
+    "main.js": "./static/js/main.ffcd9f03.js",
+    "static/media/dad.jpg": "./static/media/dad.397acccacab0ab39571e.jpg",
+    "static/media/Marca.svg": "./static/media/Marca.94eb3ee34d87b5f9da81613ba1a5a048.svg",
+    "static/media/Logo.svg": "./static/media/Logo.b38b6c3e7960da18ae0f052f4ad973e9.svg",
+    "static/media/Calculate.svg": "./static/media/Calculate.c29c013ba8abf3949fdb320c48b5fd93.svg",
+    "static/media/AddCircle.svg": "./static/media/AddCircle.a5a2e197d6d6d67126628314ec511330.svg",
+    "index.html": "./index.html",
+    "static/media/Moon.svg": "./static/media/Moon.cafb93115c8e49797d9170b4af333cc3.svg",
+    "static/media/Sun.svg": "./static/media/Sun.2949295cca19b48ffc5d0419d06dd0ab.svg",
+    "static/media/ArrowLeft.svg": "./static/media/ArrowLeft.63b66dc45e719eff3ab6b48670b4788f.svg",
+    "static/media/Home.svg": "./static/media/Home.1547684b6950358cebc1d89347ffc492.svg",
+    "main.83216d16.css.map": "./static/css/main.83216d16.css.map",
+    "main.ffcd9f03.js.map": "./static/js/main.ffcd9f03.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.83216d16.css",
+    "static/js/main.ffcd9f03.js"
+  ]
+}
